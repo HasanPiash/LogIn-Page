@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech World Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Tech background elements -->
+    <div class="tech-bg">
+        <div class="grid"></div>
+        <div class="circuit-line" style="top: 20%; left: 10%; width: 120px; height: 2px; transform: rotate(45deg);"></div>
+        <div class="circuit-line" style="top: 15%; left: 25%; width: 80px; height: 2px; transform: rotate(-20deg);"></div>
+        <div class="circuit-line" style="top: 80%; left: 70%; width: 150px; height: 2px; transform: rotate(10deg);"></div>
+        <div class="circuit-line" style="top: 65%; left: 15%; width: 100px; height: 2px; transform: rotate(-30deg);"></div>
+        
+        <div class="node" style="top: 20%; left: 10%;"></div>
+        <div class="node" style="top: 15%; left: 25%;"></div>
+        <div class="node" style="top: 80%; left: 70%;"></div>
+        <div class="node" style="top: 65%; left: 15%;"></div>
+        <div class="node" style="top: 40%; left: 80%;"></div>
+        <div class="node" style="top: 30%; left: 50%;"></div>
+        
+        <div class="hexagon" style="top: 10%; left: 70%;"></div>
+        <div class="hexagon" style="top: 70%; left: 10%; transform: scale(0.7);"></div>
+        <div class="hexagon" style="top: 50%; left: 85%; transform: scale(1.2);"></div>
+        
+        <div class="binary-code" style="top: 25%; left: 5%;">10101010</div>
+        <div class="binary-code" style="top: 45%; left: 90%;">01010101</div>
+        <div class="binary-code" style="top: 75%; left: 15%;">11001100</div>
+        <div class="binary-code" style="top: 15%; left: 60%;">00110011</div>
+        <div class="binary-code" style="top: 85%; left: 65%;">11110000</div>
+    </div>
+    
+    <div class="login-container">
+        <h1>Secure Login</h1>
+        <form>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <i class="fas fa-user input-icon"></i>
+                <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            
+            <div class="options">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+            
+            <button type="submit" class="login-button">Access System</button>
+            
+            <div class="divider"></div>
+            
+            <div class="social-login">
+                <a href="#" class="social-btn"><i class="fab fa-windows"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-apple"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-linux"></i></a>
+            </div>
+            
+            <p class="signup-text">Need system access? <a href="#">Request credentials</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username && password) {
+                // Simulate login process
+                const loginBtn = this.querySelector('.login-button');
+                loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+                loginBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Authentication successful! Welcome back, ' + username);
+                    loginBtn.innerHTML = 'Access System';
+                    loginBtn.disabled = false;
+                }, 1500);
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+        
+        // Animate the nodes
+        function animateNodes() {
+            const nodes = document.querySelectorAll('.node');
+            nodes.forEach(node => {
+                const size = 5 + Math.random() * 8;
+                node.style.width = `${size}px`;
+                node.style.height = `${size}px`;
+                node.style.opacity = 0.5 + Math.random() * 0.5;
+            });
+            
+            setTimeout(animateNodes, 1000);
+        }
+        
+        animateNodes();
+    </script>
+</body>
+</html>
