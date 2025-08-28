@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #0c0e2a, #1d2253, #2a3178);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animated background */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Tech background elements */
+.tech-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.circuit-line {
+    position: absolute;
+    background: rgba(0, 247, 255, 0.15);
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+}
+
+.node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #00f7ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00f7ff;
+}
+
+.binary-code {
+    position: absolute;
+    color: rgba(0, 247, 255, 0.3);
+    font-family: monospace;
+    font-size: 14px;
+    user-select: none;
+}
+
+.grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 247, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 247, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.hexagon {
+    position: absolute;
+    width: 60px;
+    height: 34px;
+    background: rgba(0, 247, 255, 0.1);
+    margin: 17px 0;
+    border-left: 1px solid rgba(0, 247, 255, 0.3);
+    border-right: 1px solid rgba(0, 247, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+}
+
+.hexagon:before,
+.hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+}
+
+.hexagon:before {
+    bottom: 100%;
+    border-bottom: 17px solid rgba(0, 247, 255, 0.1);
+}
+
+.hexagon:after {
+    top: 100%;
+    border-top: 17px solid rgba(0, 247, 255, 0.1);
+}
+
+.login-container {
+    background: rgba(13, 18, 49, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 247, 255, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 
+                0 0 20px rgba(0, 247, 255, 0.2) inset;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    color: white;
+    z-index: 10;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-weight: 600;
+    font-size: 32px;
+    text-shadow: 0 0 10px rgba(0, 247, 255, 0.7);
+    letter-spacing: 1px;
+    color: #00f7ff;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #00f7ff;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    background: rgba(0, 10, 30, 0.6);
+    transition: all 0.3s;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 247, 255, 0.3);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    background: rgba(0, 20, 50, 0.7);
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+    border: 1px solid rgba(0, 247, 255, 0.5);
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    color: #00f7ff;
+    font-size: 18px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    accent-color: #00f7ff;
+}
+
+.forgot-password {
+    color: #00f7ff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 5px rgba(0, 247, 255, 0.7);
+}
+
+.login-button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(45deg, #00f7ff, #0066ff);
+    color: #0c0e2a;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+    letter-spacing: 1px;
+}
+
+.login-button:hover {
+    background: linear-gradient(45deg, #00e6f2, #0055ee);
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.7);
+    transform: translateY(-2px);
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.5), transparent);
+    margin: 30px 0;
+    position: relative;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 10, 30, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00f7ff;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 1px solid rgba(0, 247, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn:hover {
+    background: rgba(0, 20, 50, 0.7);
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 15px;
+    color: #a0a0e0;
+}
+
+.signup-text a {
+    color: #00f7ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 5px rgba(0, 247, 255, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 30px 20px;
+    }
+    
+    .options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+}
